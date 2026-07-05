@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "0.1",
+  "packetStatus": "draft",
+  "evaluationManifest": {
+    "id": "aep-invalid-fixture",
+    "title": "Invalid Evaluation Packet Fixture",
+    "version": "0.1.0",
+    "scope": "Fixture demonstrating a missing required field."
+  },
+  "authority": {
+    "author": "hummbl-dev",
+    "owner": "hummbl-dev"
+  },
+  "evaluationContract": {
+    "taskSuite": {
+      "tasks": [
+        {
+          "id": "fixture-task-001",
+          "prompt": "Summarize the provided document accurately.",
+          "successCondition": "Summary contains no statements unsupported by the document."
+        }
+      ]
+    },
+    "rubric": {
+      "criteria": [
+        {
+          "name": "faithfulness",
+          "description": "Summary is supported by source text.",
+          "weight": 0.7
+        }
+      ]
+    },
+    "judgeConfig": {
+      "judgeType": "programmatic"
+    }
+  },
+  "receiptRequirements": {
+    "mustRecord": [
+      "packetId",
+      "schemaVersion",
+      "runTimestamp",
+      "scores"
+    ]
+  }
+}
