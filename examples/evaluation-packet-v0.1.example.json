@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "0.1",
+  "packetStatus": "candidate",
+  "evaluationManifest": {
+    "id": "aep-tool-use-baseline",
+    "title": "Agent Tool Use Baseline",
+    "version": "0.1.0",
+    "scope": "Baseline evaluation of agent tool selection and task completion."
+  },
+  "authority": {
+    "author": "hummbl-dev",
+    "owner": "hummbl-dev"
+  },
+  "evaluationContract": {
+    "taskSuite": {
+      "tasks": [
+        {
+          "id": "task-001",
+          "prompt": "Retrieve the current status of service X and summarize it.",
+          "successCondition": "Response references the retrieved status and contains no fabricated values."
+        }
+      ]
+    },
+    "rubric": {
+      "criteria": [
+        {
+          "name": "correctness",
+          "description": "Output matches retrieved evidence without fabrication.",
+          "weight": 0.6
+        },
+        {
+          "name": "completeness",
+          "description": "Output addresses all parts of the prompt.",
+          "weight": 0.4
+        }
+      ]
+    },
+    "judgeConfig": {
+      "judgeType": "model",
+      "judgeModel": "claude-3-5-sonnet",
+      "temperature": 0.0
+    },
+    "statisticalRequirements": {
+      "minSamples": 30,
+      "confidenceLevel": 0.95
+    }
+  },
+  "receiptRequirements": {
+    "mustRecord": [
+      "packetId",
+      "schemaVersion",
+      "runTimestamp",
+      "taskResults",
+      "judgeOutputs",
+      "scores"
+    ]
+  }
+}

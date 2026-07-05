@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "0.1",
+  "packetStatus": "candidate",
+  "evaluationManifest": {
+    "id": "aep-valid-fixture",
+    "title": "Valid Evaluation Packet Fixture",
+    "version": "0.1.0",
+    "scope": "Fixture demonstrating a valid v0.1 evaluation packet."
+  },
+  "authority": {
+    "author": "hummbl-dev",
+    "owner": "hummbl-dev"
+  },
+  "evaluationContract": {
+    "taskSuite": {
+      "tasks": [
+        {
+          "id": "fixture-task-001",
+          "prompt": "Summarize the provided document accurately.",
+          "successCondition": "Summary contains no statements unsupported by the document."
+        }
+      ]
+    },
+    "rubric": {
+      "criteria": [
+        {
+          "name": "faithfulness",
+          "description": "Summary is supported by source text.",
+          "weight": 0.7
+        },
+        {
+          "name": "conciseness",
+          "description": "Summary is appropriately concise.",
+          "weight": 0.3
+        }
+      ]
+    },
+    "judgeConfig": {
+      "judgeType": "model",
+      "judgeModel": "claude-3-5-sonnet",
+      "temperature": 0.0
+    },
+    "statisticalRequirements": {
+      "minSamples": 50,
+      "confidenceLevel": 0.95
+    }
+  },
+  "receiptRequirements": {
+    "mustRecord": [
+      "packetId",
+      "schemaVersion",
+      "runTimestamp",
+      "taskResults",
+      "scores"
+    ]
+  }
+}
