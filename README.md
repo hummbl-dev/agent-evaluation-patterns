@@ -1,6 +1,6 @@
 # Agent Evaluation Patterns
 
-$(System.Collections.Hashtable.Name) is a public seed repository for agent evaluation patterns.
+Agent Evaluation Patterns is a public seed repository for agent evaluation patterns.
 
 ## Purpose
 
